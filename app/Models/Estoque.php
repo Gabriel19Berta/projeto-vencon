@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Estoque extends Model
 {
     protected $fillable = [
-        
-     ];
+        'idProduto',
+        'quantidade',
+        'tipo_movimentacao',
+        'observacao',
+        'data_movimentacao',
+        'criado',
+        'modificado',
+    ];
 }
