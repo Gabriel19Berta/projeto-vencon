@@ -10,9 +10,29 @@ use App\Http\Controllers\VendaController;
 use App\Http\Controllers\RecebimentoController;
 use App\Http\Controllers\EstoqueController;
 
+use App\Models\Cliente;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+/* FEITO EM AULA */
+Route::get('clientes/', function() {
+    $clientes = Cliente::all();
+    return view('clientes.index')->with('clientes', $clientes);
+});
+
+Route::get('show/{id}/', function(Request $request) {
+    $clientes = Cliente::find($request->id);
+    return view('clientes.index')->with('clientes', $cliente);
+});
+
+
+
+
+
+/* FEITO ANTERIOMENTE PARA ATIVIDADE */
 
 Route::get('/funcionarios', [FuncionarioController::class, 'index'])->name('funcionarios.index');
 Route::get('/funcionarios/create', [FuncionarioController::class, 'create'])->name('funcionarios.create');
